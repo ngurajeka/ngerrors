@@ -109,7 +109,7 @@ class NgErrors
      */
     public function isEmpty()
     {
-        return empty($this->errors);
+        return empty($this->ngerrors);
     }
 
     /**
