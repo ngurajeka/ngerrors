@@ -15,7 +15,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-0": {
-            "Ng\\Errors": "src"
+            "Ng\\Errors": "src/Errors"
         }
     }
 }
