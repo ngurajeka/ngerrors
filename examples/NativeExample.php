@@ -1,6 +1,6 @@
 <?php
 include 'vendor/autoload.php';
-use \Ng\Errors;
+use Ng\Errors;
 
 $ngerrors   = new Errors\NgErrors();
 
