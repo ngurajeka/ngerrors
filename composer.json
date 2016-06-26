@@ -1,0 +1,21 @@
+{
+    "name": "ngurajeka/ngerrors",
+    "description": "Handling error using interface and abstraction",
+    "type": "library",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "license": "MIT https://opensource.org/licenses/MIT",
+    "authors": [
+        {
+            "name": "Ady Rahmat MA",
+            "email": "ngurajeka.92@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "Ng\\Errors": "src"
+        }
+    }
+}
