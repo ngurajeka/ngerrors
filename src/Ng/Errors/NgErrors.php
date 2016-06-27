@@ -75,7 +75,7 @@ class NgErrors
      */
     public function flush()
     {
-        $this->errors = array();
+        $this->ngerrors = array();
     }
 
     /**
@@ -87,7 +87,7 @@ class NgErrors
      */
     public function clean($sort=true)
     {
-        $errors = $this->errors;
+        $errors = $this->getNgErrors();
         $clean  = function (NgErrorInterface $ngerror) {
             if (empty($ngerror->toArray())) {
                 unset($ngerror);
@@ -100,7 +100,7 @@ class NgErrors
             sort($errors);
         }
 
-        $this->errors = $errors;
+        $this->ngerrors = $errors;
     }
 
     /**
