@@ -10,8 +10,10 @@
  * @license  MIT https://opensource.org/licenses/MIT
  * @link     https://github.com/ngurajeka/ngerrors
  */
-namespace Ng\Errors;
+namespace Ng\Errors\Error;
 
+
+use Ng\Errors\NgErrorInterface;
 
 /**
  * Errors Module
@@ -22,14 +24,12 @@ namespace Ng\Errors;
  * @license  MIT https://opensource.org/licenses/MIT
  * @link     https://github.com/ngurajeka/ngerrors
  */
-interface NgErrorInterface
+class NotFound extends SimpleError implements NgErrorInterface
 {
-    // extracting the errors into a simple key:value array (associative)
-    // could be nested, only return an error that available for public users
-    public function toArray();
+    const NOTFOUND = 404;
 
-    // extracting the errors into a simple key:value array (associative)
-    // could be nested, but it is specially return the complete errors
-    // message, detail as a trace to the developer
-    public function toDev();
+    public function __construct($message, $source=null, $stackTrace=null)
+    {
+        parent::__construct(self::NOTFOUND, $message, $source, $stackTrace);
+    }
 }
