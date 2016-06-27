@@ -2,6 +2,7 @@
     "name": "ngurajeka/ngerrors",
     "description": "Handling error using interface and abstraction",
     "type": "library",
+    "version": "1.0",
     "require": {
         "php": ">=5.4.0"
     },

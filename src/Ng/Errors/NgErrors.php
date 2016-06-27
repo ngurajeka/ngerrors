@@ -29,11 +29,12 @@ class NgErrors
     /**
      * Append Error(s) that implemented NgErrorInterface
      *
-     * @param NgErrorInterface $ngerror error that implement NgErrorInterface
+     * @param NgErrorInterface $ngErrorInterface error that implement NgErrorInterface
+     * @param NgErrorInterface $ngErrorInterface [optional]
      *
      * @return void
      */
-    public function append()
+    public function append(NgErrorInterface $ngErrorInterface)
     {
         $errors = func_get_args();
 
@@ -132,6 +133,7 @@ class NgErrors
     {
         $errors         = array();
         foreach ( $this->getNgErrors() as $ngerror ) {
+            /** @type NgErrorInterface $ngerror */
             $errors[]   = $ngerror->toArray();
         }
 
