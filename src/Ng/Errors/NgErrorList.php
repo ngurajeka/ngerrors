@@ -53,4 +53,20 @@ class NgErrorList implements \Countable
     {
         return count($this->ngErrors);
     }
+
+    public function toArray()
+    {
+        $list       = array();
+        foreach ($this->ngErrors as $error) {
+            $list[] = $error->toArray();
+        }
+    }
+
+    public function toDev()
+    {
+        $list       = array();
+        foreach ($this->ngErrors as $error) {
+            $list[] =  $error->toDev();
+        }
+    }
 }
