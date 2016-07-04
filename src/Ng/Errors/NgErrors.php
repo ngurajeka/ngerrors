@@ -29,16 +29,13 @@ class NgErrors
     /**
      * Append Error(s) that implemented NgErrorInterface
      *
-     * @param NgErrorInterface $ngErrorInterface error that implement NgErrorInterface
-     * @param NgErrorInterface $ngErrorInterface [optional]
+     * @param NgErrorInterface ...$ngErrorInterface error that implement NgErrorInterface
      *
      * @return void
      */
-    public function append(NgErrorInterface $ngErrorInterface)
+    public function append(NgErrorInterface ...$ngErrorInterfaces)
     {
-        $errors = func_get_args();
-
-        if (empty($errors)) {
+        if (empty($ngErrorInterfaces)) {
             return;
         }
 
@@ -48,7 +45,7 @@ class NgErrors
             }
         };
 
-        array_walk($errors, $append);
+        array_walk($ngErrorInterfaces, $append);
     }
 
     /**
@@ -58,14 +55,14 @@ class NgErrors
      *
      * @return void
      */
-    public function merge(NgErrors $ngerrors)
+    public function merge(NgErrors $ngErrors)
     {
-        if ($ngerrors->isEmpty()) {
+        if ($ngErrors->isEmpty()) {
             return;
         }
 
-        foreach ($ngerrors->getNgErrors() as $ngerror) {
-            $this->append($ngerror);
+        foreach ($ngErrors->getNgErrors() as $ngError) {
+            $this->append($ngError);
         }
     }
 

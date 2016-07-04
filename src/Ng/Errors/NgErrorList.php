@@ -35,7 +35,7 @@ class NgErrorList implements \Countable
         return null;
     }
 
-    public function AddError(NgErrorInterface $ngErrorInterface)
+    public function addError(NgErrorInterface $ngErrorInterface)
     {
         $this->ngErrors[] = $ngErrorInterface;
     }
@@ -58,6 +58,7 @@ class NgErrorList implements \Countable
     {
         $list       = array();
         foreach ($this->ngErrors as $error) {
+            /** @type NgErrorInterface $error */
             $list[] = $error->toArray();
         }
     }
@@ -66,6 +67,7 @@ class NgErrorList implements \Countable
     {
         $list       = array();
         foreach ($this->ngErrors as $error) {
+            /** @type NgErrorInterface $error */
             $list[] =  $error->toDev();
         }
     }
