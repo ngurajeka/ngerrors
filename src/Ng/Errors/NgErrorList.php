@@ -54,6 +54,11 @@ class NgErrorList implements \Countable
         return count($this->ngErrors);
     }
 
+    public function isEmpty()
+    {
+        return $this->count() == 0;
+    }
+
     public function toArray()
     {
         $list       = array();
