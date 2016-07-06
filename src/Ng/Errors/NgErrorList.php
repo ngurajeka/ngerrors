@@ -49,6 +49,18 @@ class NgErrorList implements \Countable
         }
     }
 
+    public function merge(NgErrorList $ngErrorList)
+    {
+        $iterator       = new NgErrorIterator($ngErrorList);
+        while ($iterator->valid()) {
+            $ngError    = $iterator->current();
+            if ($ngError instanceOf NgErrorInterface) {
+                $this->ngErrors[] = $ngError;
+            }
+            $iterator->next();
+        }
+    }
+
     public function count()
     {
         return count($this->ngErrors);
