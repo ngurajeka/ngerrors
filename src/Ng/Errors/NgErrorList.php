@@ -26,6 +26,13 @@ class NgErrorList implements \Countable
 {
     private $ngErrors;
 
+    /**
+     * Get Error Object From it's index
+     *
+     * @param int $errorNumber
+     *
+     * @return NgErrorInterface
+     */
     public function getError($errorNumber)
     {
         if (isset($this->ngErrors[$errorNumber])) {
@@ -35,11 +42,25 @@ class NgErrorList implements \Countable
         return null;
     }
 
+    /**
+     * Add Error to the list
+     *
+     * @param NgErrorInterface $ngErrorInterface
+     *
+     * @return void
+     */
     public function addError(NgErrorInterface $ngErrorInterface)
     {
         $this->ngErrors[] = $ngErrorInterface;
     }
 
+    /**
+     * Remove Error from the list
+     *
+     * @param NgErrorInterface $ngErrorInterface
+     *
+     * @return void
+     */
     public function removeError(NgErrorInterface $ngErrorInterface)
     {
         foreach ($this->ngErrors as $index => $error) {
@@ -49,6 +70,13 @@ class NgErrorList implements \Countable
         }
     }
 
+    /**
+     * Mergin another list to our list
+     *
+     * @param NgErrorList $ngErrorList
+     *
+     * @return void
+     */
     public function merge(NgErrorList $ngErrorList)
     {
         $iterator       = new NgErrorIterator($ngErrorList);
@@ -61,16 +89,31 @@ class NgErrorList implements \Countable
         }
     }
 
+    /**
+     * Count how much error on the list
+     *
+     * @return int
+     */
     public function count()
     {
         return count($this->ngErrors);
     }
 
+    /**
+     * Check if the list is empty or not
+     *
+     * @return bool
+     */
     public function isEmpty()
     {
         return $this->count() == 0;
     }
 
+    /**
+     * Return the error as an array, only for public errors
+     *
+     * @return array
+     */
     public function toArray()
     {
         $list       = array();
@@ -78,8 +121,15 @@ class NgErrorList implements \Countable
             /** @type NgErrorInterface $error */
             $list[] = $error->toArray();
         }
+
+        return $list;
     }
 
+    /**
+     * Return the error as an array, only for dev errors
+     *
+     * @return array
+     */
     public function toDev()
     {
         $list       = array();
@@ -87,5 +137,7 @@ class NgErrorList implements \Countable
             /** @type NgErrorInterface $error */
             $list[] =  $error->toDev();
         }
+
+        return $list;
     }
 }
