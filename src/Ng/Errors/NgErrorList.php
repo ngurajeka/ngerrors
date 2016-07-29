@@ -117,6 +117,11 @@ class NgErrorList implements \Countable
     public function toArray()
     {
         $list       = array();
+
+        if ($this->isEmpty()) {
+            return $list;
+        }
+
         foreach ($this->ngErrors as $error) {
             /** @type NgErrorInterface $error */
             $list[] = $error->toArray();
@@ -133,6 +138,11 @@ class NgErrorList implements \Countable
     public function toDev()
     {
         $list       = array();
+
+        if ($this->isEmpty()) {
+            return $list;
+        }
+
         foreach ($this->ngErrors as $error) {
             /** @type NgErrorInterface $error */
             $list[] =  $error->toDev();
