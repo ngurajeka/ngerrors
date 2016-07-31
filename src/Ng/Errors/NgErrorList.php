@@ -27,6 +27,25 @@ class NgErrorList implements \Countable
     private $ngErrors;
 
     /**
+     * Append Errors
+     *
+     * @param NgErrorInterface[] $errors
+     *
+     * @return void
+     */
+    public function append($errors)
+    {
+        foreach ($errors as $error) {
+
+            if (!$error instanceOf NgErrorInterface) {
+                continue;
+            }
+
+            $this->addError($error);
+        }
+    }
+
+    /**
      * Get Error Object From it's index
      *
      * @param int $errorNumber
